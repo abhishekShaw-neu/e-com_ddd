@@ -39,6 +39,5 @@ public class CustomerController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    // Additional methods for updating, deleting, or other customer-related operations
 
 }

@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class ShoppingCartService implements ShoppingCartManagementService {
     private final ShoppingCartAggregate shoppingCartAggregate;
-    private final String defaultUserId;  // You can provide a default or fetch it from another source
+    private final String defaultUserId;  //  default or fetch it from another source
 
     @Autowired
     public ShoppingCartService(ShoppingCartAggregate shoppingCartAggregate) {
         this.shoppingCartAggregate = shoppingCartAggregate;
-        this.defaultUserId = "defaultUserId";  // You can replace this with logic to fetch the user ID
+        this.defaultUserId = "defaultUserId";  // replace this with logic to fetch the user ID
     }
 
     @Override
@@ -29,7 +29,7 @@ public class ShoppingCartService implements ShoppingCartManagementService {
 
     @Override
     public void removeItemFromCart(String userId, ProductId productId) {
-        // Use userId or defaultUserId as needed
+        // Use userId or defaultUserId
         userId = (userId != null) ? userId : defaultUserId;
 
         shoppingCartAggregate.removeCartItem(productId);
@@ -37,7 +37,7 @@ public class ShoppingCartService implements ShoppingCartManagementService {
 
     @Override
     public void updateItemQuantity(String userId, ProductId productId, int newQuantity) {
-        // Use userId or defaultUserId as needed
+        // Use userId or defaultUserId
         userId = (userId != null) ? userId : defaultUserId;
 
         shoppingCartAggregate.updateCartItemQuantity(productId, newQuantity);
@@ -45,7 +45,7 @@ public class ShoppingCartService implements ShoppingCartManagementService {
 
     @Override
     public void clearCart(String userId) {
-        // Use userId or defaultUserId as needed
+        // Use userId or defaultUserId
         userId = (userId != null) ? userId : defaultUserId;
 
         shoppingCartAggregate.clearCart();

@@ -1,4 +1,3 @@
-// CustomerServiceImpl.java (service)
 package com.example.customer.service;
 
 import com.example.customer.dto.CustomerDTO;
@@ -43,7 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new IllegalArgumentException("Customer ID cannot be null");
         }
 
-        // Check if a customer with the same email or phone number already exists in the database
+        // Check if a customer with the same email or phone number already exists
         if (customerRepository.existsByEmailOrPhoneNumber(customerDTO.getEmail(), customerDTO.getPhoneNumber())) {
             throw new IllegalArgumentException("Customer with the same email or phone number already exists");
         }
