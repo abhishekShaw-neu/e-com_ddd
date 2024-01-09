@@ -15,9 +15,8 @@ public class ShoppingCartAggregate {
     private final String userId;
     private final List<CartItem> cartItems;
 
-    // Default constructor for Spring to instantiate the bean
     public ShoppingCartAggregate() {
-        this.userId = "defaultUserId";  // You can replace this with logic to fetch the user ID
+        this.userId = "defaultUserId";  // replace this with logic to fetch the user ID
         this.cartItems = new ArrayList<>();
     }
 
@@ -26,17 +25,17 @@ public class ShoppingCartAggregate {
     }
 
     public void addCartItem(CartItem cartItem) {
-        // Add validation if necessary
+        // validation
         cartItems.add(cartItem);
     }
 
     public void removeCartItem(ProductId productId) {
-        // Add validation if necessary
+        // Add validation
         cartItems.removeIf(item -> item.getProductId().equals(productId));
     }
 
     public void updateCartItemQuantity(ProductId productId, int newQuantity) {
-        // Add validation if necessary
+        // Add validation
         cartItems.forEach(item -> {
             if (item.getProductId().equals(productId)) {
                 item.increaseQuantity(newQuantity - item.getQuantity().getValue());

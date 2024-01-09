@@ -11,7 +11,7 @@ public class ProductId {
     private final String value;
 
     public ProductId(String value) {
-        // Add validation if necessary
+        // Add validation
         this.value = value;
     }
 

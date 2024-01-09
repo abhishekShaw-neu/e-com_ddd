@@ -21,12 +21,12 @@ public class CartItem {
     }
 
     public void increaseQuantity(int amount) {
-        // Add validation if necessary
+        // Add validation
         this.quantity = new Quantity(this.quantity.getValue() + amount);
     }
 
     public void decreaseQuantity(int amount) {
-        // Add validation if necessary
+        // Add validation
         int newQuantity = this.quantity.getValue() - amount;
         this.quantity = new Quantity(Math.max(newQuantity, 0));
     }
