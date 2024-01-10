@@ -1,12 +1,8 @@
 package com.example.customer.infrastructure.database;
 
-// AddressEntity.java
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.UUID;
@@ -19,7 +15,11 @@ public class AddressEntity {
     private UUID addressId;
     private String street;
     private String city;
-    private String state;
     private String zipCode;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private CustomerEntity customer;
+
+    // Getters, setters, and other methods
 }

@@ -1,5 +1,6 @@
 package com.example.customer.domain;
 
+import com.example.customer.application.dtos.AddressDTO;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -13,31 +14,63 @@ public class CustomerAggregate {
     private UUID customerId;
     private String firstName;
     private String lastName;
-    private String email;
-    private String phoneNumber;
     private List<AddressValueObject> addresses;
+    private String phoneNumber;
+    private String email;
 
-    public CustomerAggregate(UUID customerId, String firstName, String lastName, String email, String phoneNumber) {
-        validateInputs(firstName, lastName, email, phoneNumber);
+    public CustomerAggregate(UUID customerId, String firstName, String lastName,
+                             List<AddressValueObject> addresses, String phoneNumber, String email) {
+        // Validation
+        if (phoneNumber == null || email == null) {
+            throw new IllegalArgumentException("Phone number and email cannot be null.");
+        }
+
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.addresses = addresses != null ? addresses : new ArrayList<>();
         this.phoneNumber = phoneNumber;
-        this.addresses = new ArrayList<>();
+        this.email = email;
     }
 
-    public void addAddress(AddressValueObject address) {
-        addresses.add(address);
+    public CustomerAggregate(String firstName, String lastName, String email, String phoneNumber, List<AddressDTO> addresses) {
+
+
+    }
+    public void update(String newFirstName, String newLastName, String newEmail, String newPhoneNumber) {
+        if (newFirstName != null) {
+            this.firstName = newFirstName;
+        }
+
+        if (newLastName != null) {
+            this.lastName = newLastName;
+        }
+
+        if (newEmail != null) {
+            this.email = newEmail;
+        }
+
+        if (newPhoneNumber != null) {
+            this.phoneNumber = newPhoneNumber;
+        }
+
+        // Add logic to update addresses if needed
     }
 
-    public void updateDetails(String firstName, String lastName, String email, String phoneNumber) {
-        validateInputs(firstName, lastName, email, phoneNumber);
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customerId);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        CustomerAggregate that = (CustomerAggregate) obj;
+        return Objects.equals(customerId, that.customerId);
+    }
+
 
 
     private void validateInputs(String firstName, String lastName, String email, String phoneNumber) {
