@@ -1,2 +1,4 @@
-package com.example.customer.application.commandhandlers;public class UpdateCustomerCommandHandler {
+package com.example.customer.application.commandhandlers;
+
+public class UpdateCustomerCommandHandler {
 }

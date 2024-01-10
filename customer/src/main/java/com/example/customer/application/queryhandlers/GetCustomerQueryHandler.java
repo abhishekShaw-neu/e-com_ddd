@@ -1,2 +1,4 @@
-package com.example.customer.application.queryhandlers;public class GetCustomerQueryHandler {
+package com.example.customer.application.queryhandlers;
+
+public class GetCustomerQueryHandler {
 }

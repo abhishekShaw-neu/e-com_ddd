@@ -1,2 +1,4 @@
-package com.example.customer.application.commandhandlers;public class DeleteCustomerCommandHandler {
+package com.example.customer.application.commandhandlers;
+
+public class DeleteCustomerCommandHandler {
 }
