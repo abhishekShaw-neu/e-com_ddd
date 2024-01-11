@@ -13,7 +13,6 @@ public class DatabaseEntityMapper {
     private static final ModelMapper modelMapper = new ModelMapper();
 
     private DatabaseEntityMapper() {
-        // Private constructor to prevent instantiation
     }
 
     public static CustomerEntity mapToEntity(CustomerAggregate customer) {
@@ -40,7 +39,6 @@ public class DatabaseEntityMapper {
         return addresses.stream()
                 .map(address -> {
                     AddressEntity addressEntity = new AddressEntity();
-                    // Mapping logic here
                     return addressEntity;
                 })
                 .collect(Collectors.toList());

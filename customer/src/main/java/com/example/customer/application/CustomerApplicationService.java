@@ -45,7 +45,6 @@ public class CustomerApplicationService {
 
 
 
-    // Helper method to map CustomerAggregate to CustomerDTO
     private CustomerDTO mapToCustomerDTO(CustomerAggregate customerAggregate) {
         return new CustomerDTO(
                 customerAggregate.getCustomerId(),
@@ -57,7 +56,6 @@ public class CustomerApplicationService {
         );
     }
 
-    // Helper method to map AddressValueObject list to AddressDTO list
     private List<AddressDTO> mapToAddressDTOs(List<AddressValueObject> addressValueObjects) {
         return addressValueObjects.stream()
                 .map(addressValueObject -> new AddressDTO(

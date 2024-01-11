@@ -21,5 +21,4 @@ public class AddressEntity {
     @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
 
-    // Getters, setters, and other methods
 }

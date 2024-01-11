@@ -33,16 +33,13 @@ public class CustomerService {
     public void updateCustomer(UpdateCustomerCommand command) {
         CustomerAggregate existingCustomer = getExistingCustomer(command.getCustomerId());
 
-        // Extract values from the command
         String newFirstName = command.getFirstName();
         String newLastName = command.getLastName();
         String newEmail = command.getEmail();
         String newPhoneNumber = command.getPhoneNumber();
 
-        // Use the update method with individual parameters
         existingCustomer.update(newFirstName, newLastName, newEmail, newPhoneNumber);
 
-        // Save the updated customer to the repository
         customerRepository.save(DatabaseEntityMapper.mapToEntity(existingCustomer));
     }
 

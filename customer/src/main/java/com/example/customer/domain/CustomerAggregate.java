@@ -33,8 +33,8 @@ public class CustomerAggregate {
         this.email = email;
     }
 
-    public CustomerAggregate(String firstName, String lastName, String email, String phoneNumber, List<AddressDTO> addresses) {
 
+    public CustomerAggregate(String firstName, String lastName, String email, String phoneNumber, List<AddressDTO> addresses) {
 
     }
     public void update(String newFirstName, String newLastName, String newEmail, String newPhoneNumber) {
@@ -54,7 +54,6 @@ public class CustomerAggregate {
             this.phoneNumber = newPhoneNumber;
         }
 
-        // Add logic to update addresses if needed
     }
 
 

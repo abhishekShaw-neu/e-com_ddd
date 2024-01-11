@@ -3,10 +3,8 @@ package com.example.customer.application.commands;
 import com.example.customer.application.dtos.AddressDTO;
 import lombok.Data;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @Data
@@ -29,7 +27,6 @@ public class CreateCustomerCommand {
 //    @Valid
     private List<AddressDTO> addresses;
 
-    // Constructors, getters, and setters
 
     public CreateCustomerCommand() {
     }
@@ -42,7 +39,6 @@ public class CreateCustomerCommand {
         this.addresses = addresses;
     }
 
-    // Additional validation or business rules as needed
 }
 
 

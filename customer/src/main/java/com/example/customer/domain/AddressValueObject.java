@@ -3,7 +3,7 @@ package com.example.customer.domain;
 
 import lombok.Data;
 
-import java.util.Objects;
+//import java.util.Objects;
 
 @Data
 public class AddressValueObject {

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 public class CustomerCreationService {
 
     public CustomerAggregate createCustomerFromCommand(CreateCustomerCommand command) {
-        // You can include additional validation or business logic here if needed
         return new CustomerAggregate(
                 command.getFirstName(),
                 command.getLastName(),
